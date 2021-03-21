@@ -1,0 +1,25 @@
+{% extends "src/templates/base.j2" %}
+
+{% block title %}Vidéos{% endblock %}
+{% block videos_is_active %}is-active{% endblock %}
+
+{% block content %}
+<div class="columns is-multiline">
+    {% for file in data[2].contents %}
+    <div class="column is-one-third">
+        <div class="card">
+            <div class="card-image">
+                <video controls="true">
+                    <source src="../data/videos/{{ file.name }}">
+                </video>
+            </div>
+            <div class="card-content">
+                <div class="content">
+                    {{ file.name | trim('.mp4' )}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

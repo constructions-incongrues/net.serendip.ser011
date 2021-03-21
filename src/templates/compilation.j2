@@ -1,0 +1,12 @@
+{% extends "src/templates/base.j2" %}
+
+{% block title %}Compilation{% endblock %}
+{% block compilation_is_active %}is-active{% endblock %}
+
+{% block content %}
+    {% for file in data[0].contents %}
+    <audio preload="none" controls="true" data-title="{{ file.name | trim('.flac') }}" class="iru-tiny-player">
+        <source src="../data/compilation/{{ file.name }}" type="audio/flac">
+    </audio>
+    {% endfor %}
+{% endblock %}
